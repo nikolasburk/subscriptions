@@ -35,7 +35,26 @@ const resolvers = {
   Subscription: {
     publications: {
       subscribe: async (parent, args, ctx, info) => {
-        return ctx.db.subscription.post({}, info)
+        return ctx.db.subscription.post(
+          {
+            where: {
+              mutation_in: ['CREATED', 'UPDATED'],
+            },
+          },
+          info,
+        )
+      },
+    },
+    postDeleted: {
+      subscribe: async (parent, args, ctx, info) => {
+        return ctx.db.subscription.post(
+          {
+            where: {
+              mutation_in: ['DELETED'],
+            },
+          },
+          info,
+        )
       },
     },
   },
@@ -50,8 +69,8 @@ const server = new GraphQLServer({
       typeDefs: 'src/generated/prisma.graphql',
       endpoint: 'http://localhost:4466/subscriptions-example/dev',
       secret: 'mysecret123',
+      debug: true,
     }),
-    debug: true,
   }),
 })
 

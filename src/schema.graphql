@@ -11,4 +11,5 @@ type Mutation {
 
 type Subscription {
   publications: PostSubscriptionPayload
+  postDeleted: PostSubscriptionPayload
 }
