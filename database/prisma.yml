@@ -15,6 +15,3 @@ datamodel: datamodel.graphql
 # you don't need to generate the JWTs manually as the library is doing that for you.
 secret: mysecret123
 
-# The cluster your service is deployed to. Cluster information (such as
-# host and cluster secret) are stored in `~/.prisma/config.yml`.
-cluster: local
