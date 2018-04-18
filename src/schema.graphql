@@ -8,7 +8,3 @@ type Mutation {
   writePost(title: String!): Post
   updateTitle(id: ID!, newTitle: String!): Post
 }
-
-type Subscription {
-  publications: PostSubscriptionPayload
-}

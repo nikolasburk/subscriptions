@@ -32,13 +32,6 @@ const resolvers = {
       )
     },
   },
-  Subscription: {
-    publications: {
-      subscribe: async (parent, args, ctx, info) => {
-        return ctx.db.subscription.post({}, info)
-      },
-    },
-  },
 }
 
 const server = new GraphQLServer({
