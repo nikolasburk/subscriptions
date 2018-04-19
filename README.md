@@ -4,7 +4,7 @@ This repository contains the code for the [GraphQL subscriptions tutorial](https
 
 ## Get started
 
-### 1. Download the example & install dependencies
+### 1. Download the example & Install dependencies
 
 Clone the repository:
 
@@ -21,7 +21,7 @@ yarn install
 
 ### 2. Deploy the Prisma database API
 
-You can now [deploy](https://www.prismagraphql.com/docs/reference/cli-command-reference/database-service/prisma-deploy-kee1iedaov):
+You can now [deploy](https://www.prismagraphql.com/docs/reference/cli-command-reference/database-service/prisma-deploy-kee1iedaov) the Prisma database API:
 
 ```sh
 yarn prisma deploy
