@@ -31,30 +31,46 @@ const resolvers = {
         info,
       )
     },
+    deletePost(parent, { id }, ctx, info) {
+      return ctx.db.mutation.deletePost(
+        {
+          where: {
+            id,
+          },
+        },
+        info,
+      )
+    },
   },
   Subscription: {
     publications: {
-      subscribe: async (parent, args, ctx, info) => {
+      subscribe: (parent, args, ctx, info) => {
         return ctx.db.subscription.post(
           {
-            where: {
-              mutation_in: ['CREATED', 'UPDATED'],
-            },
+            // where: {
+            //   mutation_in: ['CREATED', 'UPDATED'],
+            // },
           },
           info,
         )
       },
     },
     postDeleted: {
-      subscribe: async (parent, args, ctx, info) => {
+      subscribe: (parent, args, ctx, info) => {
+        const newInfo = `{ previousValues { id title } }`
         return ctx.db.subscription.post(
           {
-            where: {
-              mutation_in: ['DELETED'],
-            },
+            // where: {
+            //   mutation_in: ['DELETED'],
+            // },
           },
-          info,
+          newInfo,
         )
+      },
+      resolve: (payload, args, context, info) => {
+        console.log(`post deleted`)
+        console.log(JSON.stringify(payload))
+        return payload.post.previousValues
       },
     },
   },
