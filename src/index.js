@@ -68,7 +68,7 @@ const resolvers = {
         )
       },
       resolve: (payload, args, context, info) => {
-        return payload.post.previousValues
+        return payload ? payload.post.previousValues : payload // sanity check
       },
     },
   },
