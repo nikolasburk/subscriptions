@@ -47,9 +47,9 @@ const resolvers = {
       subscribe: (parent, args, ctx, info) => {
         return ctx.db.subscription.post(
           {
-            // where: {
-            //   mutation_in: ['CREATED', 'UPDATED'],
-            // },
+            where: {
+              mutation_in: ['CREATED', 'UPDATED'],
+            },
           },
           info,
         )
@@ -57,19 +57,17 @@ const resolvers = {
     },
     postDeleted: {
       subscribe: (parent, args, ctx, info) => {
-        const newInfo = `{ previousValues { id title } }`
+        const selectionSet = `{ previousValues { id title } }`
         return ctx.db.subscription.post(
           {
-            // where: {
-            //   mutation_in: ['DELETED'],
-            // },
+            where: {
+              mutation_in: ['DELETED'],
+            },
           },
-          newInfo,
+          selectionSet,
         )
       },
       resolve: (payload, args, context, info) => {
-        console.log(`post deleted`)
-        console.log(JSON.stringify(payload))
         return payload.post.previousValues
       },
     },
