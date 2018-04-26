@@ -27,7 +27,7 @@ You can now [deploy](https://www.prismagraphql.com/docs/reference/cli-command-re
 yarn prisma deploy
 ```
 
-When prompted where (i.e. to which [cluster](https://www.prisma.io/docs/reference/clusters/overview-eu2ood0she)) you want to deploy your service, choose any of the _public clusters_, e.g. `public-us1` or `public-eu1`. (If you have Docker installed, you can also deploy locally.)
+When prompted by the CLI how you want to deploy your Prisma API, select either of the Prisma Sandbox options: `sandbox-eu1` or `sandbox-us1`. Then provide a _name_ for your API and the _stage_ or simply hit **Enter** to select the suggested values.
 
 > **Note**: `prisma` is listed as a _development dependency_ and _script_ in this project's [`package.json`](./package.json). This means you can invoke the Prisma CLI without having it globally installed on your machine (by prefixing it with `yarn`), e.g. `yarn prisma deploy` or `yarn prisma playground`. If you have the Prisma CLI installed globally (which you can do with `npm install -g prisma`), you can omit the `yarn` prefix.
 

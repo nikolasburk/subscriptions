@@ -1,11 +1,3 @@
-# The name for the service. It will be part of the service's HTTP endpoint,
-# e.g. http://localhost:4466/subscriptions-example/dev.
-service: subscriptions-example
-
-# The stage to which the service is deployed. This is the last part
-# of the service's HTTP endpoint (see example above).
-stage: dev
-
 # Points to the file containing your data model.
 datamodel: datamodel.graphql
 
