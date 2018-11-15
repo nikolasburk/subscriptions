@@ -6,4 +6,3 @@ datamodel: datamodel.graphql
 # to generate a JWT based on the secret. When using the `prisma-binding` package, 
 # you don't need to generate the JWTs manually as the library is doing that for you.
 secret: mysecret123
-
